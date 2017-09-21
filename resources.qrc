@@ -1,0 +1,13 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file>images/open_folder.svg</file>
+    <file>images/open_image.svg</file>
+    <file>images/draw_bounding_box.svg</file>
+    <file>images/add_text.svg</file>
+    <file>images/import_csv.svg</file>
+    <file>images/KAUST_Logo.png</file>
+    <file>images/save_image.svg</file>
+    <file>images/save_annotation.svg</file>
+    <file>images/icon.ico</file>
+</qresource>
+</RCC>
