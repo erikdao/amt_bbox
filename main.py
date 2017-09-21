@@ -273,12 +273,15 @@ class MainWindow(QtWidgets.QMainWindow):
         path = self.dirModel.filePath(index)
         self.setActiveImage(path)
         item = self.getAnnotationByImageUrl(path)
-        anno = item['annotations'][0]
-        self.scene.drawRect(anno['left'], anno['top'], anno['width'], anno['height'])
-
+        for indx, (worker_id, boxes) in enumerate(item['annotations'].items()):
+            for box in boxes:
+                self.scene.drawRect(box['left'], box['top'], box['width'], box['height'], indx)
+        
     # Annotation-related method
     def getAnnotationByImageUrl(self, url):
-        return list(filter(lambda item: item['image_url'] == url, self.annotation_data))[0]
+        search = list(filter(lambda item: item['image_url'] == url, self.annotation_data))
+        assert len(search) == 1, "Found {} image(s) with path={}".format(len(search), path)
+        return search[0]
 
 if __name__ == '__main__':
     import sys
